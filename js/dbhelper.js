@@ -9,7 +9,13 @@ class DBHelper {
    */
   static get DATABASE_URL() {
     const port = 8000 // Change this to your server port
-    return `http://localhost:${port}/data/restaurants.json`;
+    if(window.location.hostname === "localhost" || location.hostname === "127.0.0.1"){
+      return `http://localhost:${port}/data/restaurants.json`;
+    }
+    else{
+      return "https://pingsharp.github.io/mws-restaurant-stage-1/data/restaurants.json";
+    }
+    
   }
 
   /**
@@ -152,20 +158,32 @@ class DBHelper {
   static imageUrlForRestaurant(restaurant) {
     return (`/img/${restaurant.photograph}`);
   }
-
+  static imageUrlForGitHub(restaurant){
+    return (`img/${restaurant.photograph}`);
+  }
+  static smallImageUrlForRestaurant(restaurant) {
+    return (`/img/${restaurant.photograph_small}`);
+  }
+  static smallImageUrlForGitHub(restaurant){
+    return (`img/${restaurant.photograph_small}`);
+  }
+  static nameForRestaurant(restaurant) {
+    return (`${restaurant.name}`);
+  }
   /**
    * Map marker for a restaurant.
    */
-   static mapMarkerForRestaurant(restaurant, map) {
+  static mapMarkerForRestaurant(restaurant, map) {
     // https://leafletjs.com/reference-1.3.0.html#marker  
     const marker = new L.marker([restaurant.latlng.lat, restaurant.latlng.lng],
-      {title: restaurant.name,
-      alt: restaurant.name,
-      url: DBHelper.urlForRestaurant(restaurant)
+      {
+        title: restaurant.name,
+        alt: restaurant.name,
+        url: DBHelper.urlForRestaurant(restaurant)
       })
-      marker.addTo(newMap);
+    marker.addTo(newMap);
     return marker;
-  } 
+  }
   /* static mapMarkerForRestaurant(restaurant, map) {
     const marker = new google.maps.Marker({
       position: restaurant.latlng,
