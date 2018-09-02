@@ -88,21 +88,21 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const pic = document.getElementById('restaurant-img');
   const sourceSmall = document.createElement('source');
- 
-  sourceSmall.media="(max-width: 480px)";
+
+  sourceSmall.media = "(max-width: 480px)";
   const source = document.createElement('source');
- 
+
   const image = document.createElement("img");
- 
+
   image.alt = DBHelper.nameForRestaurant(restaurant);
-   if(window.location.hostname === "localhost" || location.hostname === "127.0.0.1"){
-     sourceSmall.srcset = DBHelper.smallImageUrlForRestaurant(restaurant);
-      source.srcset = DBHelper.imageUrlForRestaurant(restaurant);
-      image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  }else{
-     sourceSmall.srcset = DBHelper.smallImageUrlForGitHub(restaurant);
+  if (window.location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+    sourceSmall.srcset = DBHelper.smallImageUrlForRestaurant(restaurant);
+    source.srcset = DBHelper.imageUrlForRestaurant(restaurant);
+    image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  } else {
+    sourceSmall.srcset = DBHelper.smallImageUrlForGitHub(restaurant);
     source.srcset = DBHelper.imageUrlForGitHub(restaurant);
-     image.src = DBHelper.imageUrlForGitHub(restaurant);
+    image.src = DBHelper.imageUrlForGitHub(restaurant);
   }
   pic.appendChild(sourceSmall);
   pic.appendChild(source);

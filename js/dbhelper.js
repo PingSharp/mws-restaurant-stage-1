@@ -9,13 +9,13 @@ class DBHelper {
    */
   static get DATABASE_URL() {
     const port = 8000 // Change this to your server port
-    if(window.location.hostname === "localhost" || location.hostname === "127.0.0.1"){
+    if (window.location.hostname === "localhost" || location.hostname === "127.0.0.1") {
       return `http://localhost:${port}/data/restaurants.json`;
     }
-    else{
+    else {
       return "https://pingsharp.github.io/mws-restaurant-stage-1/data/restaurants.json";
     }
-    
+
   }
 
   /**
@@ -158,13 +158,13 @@ class DBHelper {
   static imageUrlForRestaurant(restaurant) {
     return (`/img/${restaurant.photograph}`);
   }
-  static imageUrlForGitHub(restaurant){
+  static imageUrlForGitHub(restaurant) {
     return (`img/${restaurant.photograph}`);
   }
   static smallImageUrlForRestaurant(restaurant) {
     return (`/img/${restaurant.photograph_small}`);
   }
-  static smallImageUrlForGitHub(restaurant){
+  static smallImageUrlForGitHub(restaurant) {
     return (`img/${restaurant.photograph_small}`);
   }
   static nameForRestaurant(restaurant) {
@@ -196,4 +196,3 @@ class DBHelper {
   } */
 
 }
-
