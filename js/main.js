@@ -1,3 +1,6 @@
+/**
+ * init global variables
+ */
 let restaurants,
   neighborhoods,
   cuisines
@@ -90,25 +93,11 @@ initMap = () => {
 
   updateRestaurants();
 }
-/* window.initMap = () => {
-  let loc = {
-    lat: 40.722216,
-    lng: -73.987501
-  };
-  self.map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
-    center: loc,
-    scrollwheel: false
-  });
-  updateRestaurants();
-} */
 
 /**
  * Update page and map for current restaurants.
  */
 updateRestaurants = () => {
-
-
 
   const cSelect = document.getElementById('cuisines-select');
   const nSelect = document.getElementById('neighborhoods-select');
@@ -118,8 +107,6 @@ updateRestaurants = () => {
 
   let selectedItems = document.querySelectorAll("[aria-selected*='true']");
   selectedItems.forEach(a => a.removeAttribute("aria-selected", "true"));
-
-
 
   cSelect[cIndex].setAttribute("aria-selected", "true");
   nSelect[nIndex].setAttribute("aria-selected", "true");
@@ -187,6 +174,9 @@ createRestaurantHTML = (restaurant) => {
   image.className = 'restaurant-img';
 
   image.alt = DBHelper.nameForRestaurant(restaurant);
+  /**
+   * different - testing VS. production
+   */
   if (window.location.hostname === "localhost" || location.hostname === "127.0.0.1") {
     sourceSmall.srcset = DBHelper.smallImageUrlForRestaurant(restaurant);
     source.srcset = DBHelper.imageUrlForRestaurant(restaurant);
@@ -235,8 +225,11 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     }
     self.markers.push(marker);
   });
-
 }
+
+/**
+ * Register service worker if file exist
+ */
 if (!navigator.serviceWorker) { console.log('No serviceworker available'); }
 else {
   navigator.serviceWorker.register('../sw.js').then(function () {
@@ -246,14 +239,3 @@ else {
     console.log(err + 'It failed');
   })
 }
-/* addMarkersToMap = (restaurants = self.restaurants) => {
-  restaurants.forEach(restaurant => {
-    // Add marker to the map
-    const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.map);
-    google.maps.event.addListener(marker, 'click', () => {
-      window.location.href = marker.url
-    });
-    self.markers.push(marker);
-  });
-} */
-
