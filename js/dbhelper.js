@@ -170,7 +170,7 @@ class DBHelper {
     return (`img/${restaurant.photograph_small}`);
   }
   static nameForRestaurant(restaurant) {
-    return (`${restaurant.name}`);
+    return (`Image of ${restaurant.name} restaurant`);
   }
   /**
    * Map marker for a restaurant.

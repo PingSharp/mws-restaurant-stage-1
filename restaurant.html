@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <!-- Normalize.css for better cross-browser consistency -->
@@ -23,9 +23,13 @@
     </nav>
     <!-- Beginning breadcrumb -->
     <div class="row">
-      <ul id="breadcrumb" class="col-12">
-        <li><a href="/">Home</a></li>
-      </ul>
+      <nav aria-label="Breadcrumb" role="navigation">
+        <ul id="breadcrumb" class="col-12">
+          <li>
+            <a href="/">Home</a>
+          </li>
+        </ul>
+      </nav>
     </div>
     <!-- End breadcrumb -->
     <!-- End nav -->
@@ -38,7 +42,7 @@
     <!-- Beginning restaurant -->
     <div class="row">
       <section id="restaurant-container" class="col-5">
-        <h1 role="heading" id="restaurant-name" tabindex="0"></h1>
+        <h2 role="heading" id="restaurant-name" tabindex="0"></h2>
         <picture id="restaurant-img">
         </picture>
         <p tabindex="0" id="restaurant-cuisine"></p>
@@ -55,7 +59,7 @@
     <!-- Beginning map -->
 
     <section id="map-container">
-      <div id="map"></div>
+      <div id="map" role="application"></div>
     </section>
     <!-- End map -->
   </main>

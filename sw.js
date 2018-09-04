@@ -1,4 +1,4 @@
-let staticCacheName = 'c3';
+let staticCacheName = 'c2';
 
 /**
  * init cache
