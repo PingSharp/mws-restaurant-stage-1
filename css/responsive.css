@@ -97,17 +97,12 @@
         margin-top: 2px;
     }
     #restaurants-list .restaurant-img {
-        height: 350px;
+       max-height: 350px;
     }
     #restaurants-list li a {
         position: relative;
-        top: -62px;
-        right: -60%;
-        font-size: 9pt;
-        padding-top: 4px;
-        padding-bottom: 5px;
-        padding-left: 15px;
-        padding-right: 15px;
-        border-bottom-width: 1px;
+        top: 1pt;
+        right: -45%;
+        font-size: 11pt;
     }
 }
